@@ -1,5 +1,7 @@
-const body = document.querySelector("#content");
+const content = document.querySelector(".content-home");
 function create_home() {
+  content.replaceChildren();
+
   const links_to_add = ["Home", "About", "Menu", "Location"];
   const headlines = document.createElement("div");
   const headline_one = document.createElement("h1");
@@ -15,12 +17,13 @@ function create_home() {
   links.className = "links";
   for (let link of links_to_add) {
     curr_li = document.createElement("li");
-    curr_a = document.createElement("a");
+    curr_a = document.createElement("button");
     curr_a.textContent = link;
+    curr_a.id = link;
     curr_li.appendChild(curr_a);
     links.appendChild(curr_a);
   }
-  body.append(headlines, links);
+  content.append(headlines, links);
 }
 
 export { create_home };
